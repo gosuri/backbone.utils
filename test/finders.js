@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  module("Backbone.Utils");
+  module("Utils.Finders");
 
   var a   = new Backbone.Model({id: 3, label: 'a'});
   var b   = new Backbone.Model({id: 2, label: 'b'});
@@ -8,15 +8,16 @@ $(document).ready(function(){
   var d1  = new Backbone.Model({id: 1, label: 'd'});
   var col = new Backbone.Collection([a,b,c,d,d1]);
 
-  test("Collection: findBy", function() {
+  test("Finders: findBy", function() {
     truth   = col.findBy("label", 'b');
     expects = b;
     equals(truth, expects, "should return b");
   });
 
-  test("Collection: findAllBy", function() {
+  test("Finders: findAllBy", function() {
     truth   = col.findAllBy("label", 'd');
     expects = [d,d1];
     ok(_.isEqual(truth,expects), "should return d,d1");
   });
+
 });
